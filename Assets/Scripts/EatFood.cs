@@ -10,7 +10,7 @@ public class EatFood : Agent {
     public MeshRenderer renderFloor;
 
     public override void OnEpisodeBegin() {
-        transform.position = new Vector3(Random.Range(-17.5f, 27.5f), -2.5f, Random.Range(-22.5f, 22.5f));
+        transform.position = new Vector3(Random.Range(-17f, -17f), -2.5f, Random.Range(-17f, 17f));
         //targetTransform.position = new Vector3(Random.Range(-3.f, 3.5f), 0, Random.Range(0.5f, 3.5f));
 
     }
@@ -35,9 +35,11 @@ public class EatFood : Agent {
     }
 
     private void OnTriggerEnter(Collider other) {
+        
         if (other.gameObject.CompareTag("good")) {
             SetReward(+1f);
-           // renderFloor.material = winMaterial;
+            Destroy(other.gameObject);
+            // renderFloor.material = winMaterial;
         }
         else if (other.gameObject.CompareTag("Wall")) {
             SetReward(-1f);
@@ -45,6 +47,7 @@ public class EatFood : Agent {
         }
         else if (other.gameObject.CompareTag("bad")) {
             SetReward(-2f);
+            Destroy(other.gameObject);
             // renderFloor.material = loseMaterial;
         }
         EndEpisode();
