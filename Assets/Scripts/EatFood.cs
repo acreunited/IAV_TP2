@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using Unity.MLAgents.Actuators;
@@ -8,6 +9,10 @@ using Unity.MLAgents.Actuators;
 public class EatFood : Agent {
 
     public MeshRenderer renderFloor;
+
+    public Text pointsText;
+
+    private int points = 0;
 
     public override void OnEpisodeBegin() {
         float x;
@@ -56,6 +61,8 @@ public class EatFood : Agent {
       
         if (other.gameObject.CompareTag("good")) {
             SetReward(+2f);
+            points += 2;
+            pointsText.text = "" + points;
             Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Wall")) {
@@ -63,6 +70,8 @@ public class EatFood : Agent {
         }
         else if (other.gameObject.CompareTag("bad")) {
             SetReward(-2f);
+            points--;
+            pointsText.text = "" + points;
             Destroy(other.gameObject);
         }
         EndEpisode();
