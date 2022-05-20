@@ -7,6 +7,10 @@ TagManager:
   - Wall
   - good
   - bad
+  - X_Target
+  - O_Target
+  - X
+  - O
   layers:
   - Default
   - TransparentFX

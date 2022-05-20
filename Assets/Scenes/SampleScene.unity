@@ -700,6 +700,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317126350}
   m_CullTransparentMesh: 1
+--- !u!1 &1339604402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6804503132894607688, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
+  m_PrefabInstance: {fileID: 6804503133245936514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6804503133245936514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -708,9 +713,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6804503133205002861, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
+      propertyPath: MaxStep
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804503133205002861, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
       propertyPath: pointsText
       value: 
       objectReference: {fileID: 449246311}
+    - target: {fileID: 6804503133205002861, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
+      propertyPath: foodSpwaner
+      value: 
+      objectReference: {fileID: 1339604402}
+    - target: {fileID: 6804503133205002862, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804503133205002862, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804503133205002866, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804503133205002866, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6804503134123290564, guid: d02d8bbcfd220e6408c63d3e97a2aedc, type: 3}
       propertyPath: m_Name
       value: Environment

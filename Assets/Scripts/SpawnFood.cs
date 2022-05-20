@@ -17,17 +17,17 @@ public class SpawnFood : MonoBehaviour
     void Start()
     {
  
-        Spawn(20);
+        Spawn(50);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > nextTime) {
+      /*  if (Time.time > nextTime) {
             nextTime = Time.time + pauseTime;
             Spawn(5);
             
-       }
+       }*/
        
     }
 
@@ -40,18 +40,19 @@ public class SpawnFood : MonoBehaviour
             Rigidbody rb = food.AddComponent<Rigidbody>();
             rb.useGravity = false;
             food.GetComponent<SphereCollider>().isTrigger = true;
+            food.transform.position = new Vector3(Random.Range(-2f, 2f), -0.5f, Random.Range(-2f, 2f));
+            //food.transform.parent = transform;
             
-            food.transform.parent = transform;
-            food.transform.position = new Vector3(Random.Range(-17f, 17f), -2.5f, Random.Range(-17f, 17f));
+          
 
-            if (Random.value > 0.5f) {
+          /*  if (Random.value > 0.5f) {
                 food.tag = "good";
                 food.GetComponent<MeshRenderer>().material = good;
             }
             else {
                 food.tag = "bad";
                 food.GetComponent<MeshRenderer>().material = bad;
-            }
+            }*/
 
             
         }

@@ -14,6 +14,7 @@ public class EatFood : Agent {
 
     private int points = 0;
 
+    public GameObject foodSpwaner;
     public override void OnEpisodeBegin() {
         float x;
         float z;
@@ -45,12 +46,29 @@ public class EatFood : Agent {
     }
 
     public override void CollectObservations(VectorSensor sensor) {
-        sensor.AddObservation(transform.position.x);
-        sensor.AddObservation(transform.position.z);
+       
+        for(int i = 0; i<foodSpwaner.transform.childCount; i++)
+        {
+            if (foodSpwaner.transform.GetChild(i).CompareTag("good"))
+            {
+              
+                Vector3 dirToFood = (foodSpwaner.transform.GetChild(i).position - transform.position).normalized;
+                sensor.AddObservation(dirToFood.x);
+                sensor.AddObservation(dirToFood.z);
+            }
+            else
+            {
+                Vector3 dirToFood = (foodSpwaner.transform.GetChild(i).position - transform.position).normalized;
+                sensor.AddObservation(0);
+                sensor.AddObservation(0);
+            }
+        }
+       // sensor.AddObservation(transform.position.x);
+        //sensor.AddObservation(transform.position.z);
     }
     public override void OnActionReceived(ActionBuffers actions) {
 
-        float moveSpeed = 3f;
+        float moveSpeed = 5f;
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
         
@@ -60,21 +78,25 @@ public class EatFood : Agent {
     private void OnTriggerEnter(Collider other) {
       
         if (other.gameObject.CompareTag("good")) {
-            SetReward(+2f);
+            SetReward(+1f);
             points += 2;
             pointsText.text = "" + points;
-            Destroy(other.gameObject);
+           // Destroy(other.gameObject);
         }
         else if (other.gameObject.CompareTag("Wall")) {
             SetReward(-1f);
+            Debug.Log("wall");
+            EndEpisode();
+
         }
         else if (other.gameObject.CompareTag("bad")) {
-            SetReward(-2f);
+            SetReward(-1f);
             points--;
             pointsText.text = "" + points;
-            Destroy(other.gameObject);
+            EndEpisode();
+            //   Destroy(other.gameObject);
         }
-        EndEpisode();
+       
     }
     public override void Heuristic(in ActionBuffers actionsOut) {
         float force = 0.1f;

@@ -1,4 +1,26 @@
 {
+    "EatFood": {
+        "checkpoints": [
+            {
+                "steps": 24673,
+                "file_path": "results\\ppo\\EatFood\\EatFood-24673.onnx",
+                "reward": -0.14285714285714285,
+                "creation_time": 1652992599.3897083,
+                "auxillary_file_paths": [
+                    "results\\ppo\\EatFood\\EatFood-24673.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 24673,
+            "file_path": "results\\ppo\\EatFood.onnx",
+            "reward": -0.14285714285714285,
+            "creation_time": 1652992599.3897083,
+            "auxillary_file_paths": [
+                "results\\ppo\\EatFood\\EatFood-24673.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.29.0",
