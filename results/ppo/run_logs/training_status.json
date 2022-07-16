@@ -1,23 +1,23 @@
 {
-    "EatFood": {
+    "Hallway": {
         "checkpoints": [
             {
-                "steps": 24673,
-                "file_path": "results\\ppo\\EatFood\\EatFood-24673.onnx",
-                "reward": -0.14285714285714285,
-                "creation_time": 1652992599.3897083,
+                "steps": 4953,
+                "file_path": "results\\ppo\\Hallway\\Hallway-4953.onnx",
+                "reward": -3.7083333333333335,
+                "creation_time": 1653072921.7401288,
                 "auxillary_file_paths": [
-                    "results\\ppo\\EatFood\\EatFood-24673.pt"
+                    "results\\ppo\\Hallway\\Hallway-4953.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 24673,
-            "file_path": "results\\ppo\\EatFood.onnx",
-            "reward": -0.14285714285714285,
-            "creation_time": 1652992599.3897083,
+            "steps": 4953,
+            "file_path": "results\\ppo\\Hallway.onnx",
+            "reward": -3.7083333333333335,
+            "creation_time": 1653072921.7401288,
             "auxillary_file_paths": [
-                "results\\ppo\\EatFood\\EatFood-24673.pt"
+                "results\\ppo\\Hallway\\Hallway-4953.pt"
             ]
         }
     },

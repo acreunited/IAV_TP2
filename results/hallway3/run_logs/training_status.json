@@ -1,0 +1,29 @@
+{
+    "Hallway": {
+        "checkpoints": [
+            {
+                "steps": 36158,
+                "file_path": "results\\hallway3\\Hallway\\Hallway-36158.onnx",
+                "reward": -0.9318181818181818,
+                "creation_time": 1653077998.817684,
+                "auxillary_file_paths": [
+                    "results\\hallway3\\Hallway\\Hallway-36158.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 36158,
+            "file_path": "results\\hallway3\\Hallway.onnx",
+            "reward": -0.9318181818181818,
+            "creation_time": 1653077998.817684,
+            "auxillary_file_paths": [
+                "results\\hallway3\\Hallway\\Hallway-36158.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.29.0",
+        "torch_version": "1.7.1+cu110"
+    }
+}

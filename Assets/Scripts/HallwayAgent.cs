@@ -17,7 +17,7 @@ public class HallwayAgent : Agent
     {
         float x = UnityEngine.Random.Range(-9.5f, -1.0f);
         float z = UnityEngine.Random.Range(-3.5f, 3.5f);
-        transform.localPosition = new Vector3(x, 0, z);
+        transform.localPosition = new Vector3(x, -0.5f, z);
         OnEpisodeBeginEvent?.Invoke(this, EventArgs.Empty);
     }
 
@@ -52,30 +52,30 @@ public class HallwayAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         ActionSegment<float> ca = actionsOut.ContinuousActions;
-        ca[0] = Input.GetAxisRaw("Horizontal")*0.5f;
-        ca[1] = Input.GetAxisRaw("Vertical")*0.5f;
+        ca[0] = Input.GetAxisRaw("Horizontal")*0.3f;
+        ca[1] = Input.GetAxisRaw("Vertical")*0.3f;
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("X") || collision.gameObject.CompareTag("O"))
+        /*if (collision.gameObject.CompareTag("X") || collision.gameObject.CompareTag("O"))
         {
             SetReward(-0.5f);
-            Debug.Log("hello");
-        }
-        else if (collision.gameObject.CompareTag("Wall"))
+            //Debug.Log("hello");
+        }*/
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            SetReward(-1f);
+            SetReward(-0.5f);
             EndEpisode();
         }
         else if((collision.gameObject.CompareTag("X_Target")&&objective.GetObjective().CompareTag("O")) || (collision.gameObject.CompareTag("O_Target") && objective.GetObjective().CompareTag("X"))){
-            SetReward(-1f);
-            Debug.Log("Lose");
+            SetReward(-2f);
+           
             EndEpisode();
         }
         else if((collision.gameObject.CompareTag("X_Target") &&objective.GetObjective().CompareTag("X"))|| (collision.gameObject.CompareTag("O_Target") && objective.GetObjective().CompareTag("O"))){
-            SetReward(1f);
-            Debug.Log("win");
+            SetReward(2f);
+          
             EndEpisode();
 
         }
